@@ -851,4 +851,4 @@ Usage: !gift [username]
 
 -END-
 
-RokettoJanpu, lead author of file
+RokettoJanpu, lead author of RokBot.txt
