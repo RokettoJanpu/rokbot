@@ -806,9 +806,7 @@ Heist - Payday 2 randomized loadouts, specify up to 3 other users
 Usage: !heist [up to 3 other usernames, separated by commas]
 
 
-
-
-
+-End-
 
 
 
