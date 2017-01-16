@@ -1,0 +1,852 @@
+﻿RokettoJanpu's Nightbot Command Pack:
+
+
+NOTES:
+1. You MUST have Nightbot join your channel before you attempt to use or create any custom cmds*! Click here, then click the "Join Channel" button. Afterwards, you must mod Nightbot in your channel by typing /mod Nightbot in your channel chat.
+
+
+2. All custom APIs used with any of the $(urlfetch) cmd variables are derived from here.
+
+
+3. All alias cmds perform the same function as the specified "parent" cmd. Names of alias cmds written below are usually abbreviations of their parent cmd names for easy reference, but they are NOT required.
+
+
+4. New cmds may NOT shares names with pre-existing ones. If a cmd below shares a name with one you already have, just rename the new cmd's name to something you don't already have.
+
+
+*Cmd - I often say this in place of the word command
+
+
+Instruction: To add any of the cmds below, copy and paste an !addcom line, which includes the cmd name and its syntax, and paste it into your Twitch chat.
+
+
+Rokbot - gives a link to this Google Document, you’re welcome ;)
+
+
+!addcom !rokbot Go to https://bit.ly/rokbot for a list of Nightbot custom commands written by RokettoJanpu!
+
+
+Usage: !rokbot
+
+
+Cmds - !commands alias, gives a link to the broadcaster's list of custom Nightbot cmds
+
+
+!addcom !cmds -a=!commands $(query)
+
+
+Usage: !cmds
+
+
+Ac - !addcom alias, creates a custom cmd *MOD ONLY*
+
+
+!addcom !ac -a=!addcom -cd=5 $(query)
+
+
+Usage: !ac [optional cmd aspect parameters (-ul=userlevel, -cd=cooldown, -c=counter value)] [cmd name] [cmd syntax]
+
+
+Ec - !editcom alias, edits a custom cmd *MOD ONLY*
+
+
+!addcom !ec -a=!editcom $(query)
+
+
+Usage: !ec [cmd name] [new cmd syntax]
+
+
+Dc - !delcom alias, deletes a custom cmd (NOTE: default Nightbot cmds can't be deleted, visit your Nightbot dashboard and see the list of default cmds) *MOD ONLY*
+
+
+!addcom !dc -a=!delcom $(query)
+
+
+Usage: !dc [cmd name]
+
+
+
+
+
+
+Cd - edits the cooldown of a cmd
+
+
+!addcom !cd -a=!editcom $(1) \-cd=$(2)
+
+
+Usage: !cd [cmd name] [new cooldown in seconds]
+
+
+Lock - edits a cmd such that it can only be used by moderators and higher *MOD ONLY*
+
+
+!addcom !lock -a=!editcom $(query) \-ul=mod
+
+
+Usage: !lock [cmd name]
+
+
+Superlock - edits a cmd such that it can only be used by the channel owner *MOD ONLY*
+
+
+!addcom !superlock -a=!editcom $(query) \-ul=owner
+
+
+Usage: !superlock [cmd name]
+
+
+Unlock - edits a cmd such that it can be used by anyone *MOD ONLY*
+
+
+!addcom !unlock -a=!editcom $(query) \-ul=everyone
+
+
+Usage: !unlock [cmd name]
+
+
+Test - tests if Nightbot is in the channel and functioning (use if suspected to be down/not in the current channel/malfunctioning)
+
+
+!addcom !test Status: Online! If there are any issues regarding Twitch or Nightbot, click on these links: http://twitter.com/TwitchSupport | http://twitter.com/nightbotapp
+
+
+Usage: !test
+
+
+W - welcomes a specified user
+
+
+!addcom !w Welcome, $(touser)! VoHiYo
+
+
+Usage: !w [username/leave blank]
+
+
+Wb - welcomes back a specified user
+
+
+!addcom !wb Welcome back, $(touser)! HeyGuys
+
+
+Usage: !wb [username/leave blank]
+
+
+B - says goodbye to a specified user
+
+
+!addcom !b Goodbye, $(touser)! ArgieB8
+
+
+Usage: !b [username/leave blank]
+
+
+
+
+
+
+
+
+
+
+Newfollow - greets new followers
+
+
+!addcom !newfollow Hey $(urlfetch https://apis.rtainc.co/twitchbot/followers?user=$(channel)&count=1), $(user) welcomes you to $(channel)'s channel! Enjoy your time while you're here. :D
+
+
+Usage: !newfollow
+
+
+Nf - !newfollow alias
+
+
+!addcom !nf -a=!newfollow $(query)
+
+
+Usage: !nf
+
+
+Ship - creates a "shipping" between 2 specified users with a random number chance
+
+
+!addcom !ship The ship between $(1) and $(2) has a $(urlfetch http://2g.be/twitch/randomnumber.php?=defstart=1&defend=100&start=0&end=100)% chance to set sail! $(urlfetch http://twitch.center/urlfetch/quote?token=51c809d0&no_id=1) bleedPurple $(urlfetch http://twitch.center/urlfetch/quote?token=51c809d0&no_id=1)
+
+
+!ship [user 1] [user 2]
+
+
+Botlove - Nightbot gives the user some sweet, sweet sugar <3
+
+
+!addcom !botlove /me romantically embraces and passionately kisses $(user)! MrDestructoid bleedPurple <3
+
+
+Usage: !botlove
+
+
+Fortunecookie - generates 6 random “lucky numbers”
+
+
+!addcom !fortunecookie $(user) munches on a fortune cookie! NomNom The lucky numbers on $(user)'s paper are $(urlfetch http://2g.be/twitch/randomnumber.php?start=18&end=35), $(urlfetch http://2g.be/twitch/randomnumber.php?start=1&end=17), $(urlfetch http://2g.be/twitch/randomnumber.php?start=36&end=52), $(urlfetch http://2g.be/twitch/randomnumber.php?start=83&end=100), $(urlfetch http://2g.be/twitch/randomnumber.php?start=53&end=70), and $(urlfetch http://2g.be/twitch/randomnumber.php?start=71&end=82)! MingLee
+
+
+Usage: !fortunecookie
+
+
+Fc - !fortunecookie alias
+
+
+!addcom !fc -a=!fortunecookie $(query)
+
+
+Usage: !fc
+ 
+Howlong - gets the length of time a specified user has been following the broadcaster
+
+
+!addcom !howlong $(touser) has been following $(channel) for $(urlfetch https://api.rtainc.co/twitch/channels/$(channel)/followers/$(touser)). imGlitch
+
+
+Usage: !howlong [user/leave blank]
+
+
+Hl - !howlong alias
+
+
+!addcom !hl -a=!howlong $(query)
+
+
+Usage: !hl [user/leave blank]
+
+
+Created - gets how long a specified user's account has existed for since its creation
+
+
+ !addcom !created $(twitch $(touser) "{{displayName}}'s Twitch account has existed for {{createdLength}} since {{createdAt}}.")
+
+
+Usage: !created [user/leave blank]
+
+
+C - !created alias
+
+
+!addcom !c -a=!created $(query)
+
+
+Usage: !c [user/leave blank]
+
+
+Uptime - gets how long a live broadcaster has been streaming for, and since when
+
+
+!addcom !uptime $(twitch $(channel) “{{displayName}}’s stream has been live for {{uptimeLength}} since {{uptimeAt}}.”)
+
+
+Usage: !uptime
+
+
+Ut - !uptime alias
+
+
+!addcom !ut -a=!uptime $(query)
+
+
+Usage: !ut
+
+
+Uptotal - gets how long a live broadcaster has been streaming for, and since when (NOTE: this is a time counter that continually counts towards/from a specified time in the past/present/future, you must input a time's specifics where <> are (do not actually type <>) in this order: month, day of month, year, hour, minutes, seconds, AM/PM, and timezone (the list of official Nightbot timezones can be found here)) *in case a stream crashes and Nightbot’s uptime variable is changed*
+
+
+!addcom !uptotal $(twitch $(channel) "{{displayName}}") has been live for $(countup <month (ie. 02 for February> <day of month (ie. 04 for the 4th)> <year (ie. 2016)> <hours (1-12)>:<minutes>:<seconds> <AM or PM> <timezone>). imGlitch This is in case the stream restarts or crashes.
+
+
+Usage: !uptotal
+
+
+*MALFUNCTIONAL* Eut - edits the specified time in the !uptotal counter variable *MOD ONLY*
+
+
+!addcom !eut -a=!editcom !uptotal $(twitch $(channel) "{{displayName}}") has been live for $(countup $(1) $(2) $(3) $(4):$(5):$(6) $(7) $(8)). imGlitch This is in case the stream restarts or crashes.
+
+
+Usage: !eut [number of month] [day of month] [year] [hours]:[minutes]:[seconds] [AM/PM] [timezone]
+
+
+
+
+Stats - shows a specified user's channel specifics: name, link to channel, time existed for since creation, followers, channel views, on/offline status, stream title, current game, resolution, fps, and viewers
+
+
+!addcom !stats $(twitch $(touser) "{{displayName}}'s channel, {{url}}, which has existed for {{createdLength}} since {{createdAt}}, has {{followers}} followers and {{views}} total views. {{displayName}} is currently {{status}}, streaming, under the title '{{title}}', {{game}} in {{resolution}} at {{fps}} for {{viewers}} viewers.") imGlitch
+
+
+Usage: !stats [username/leave blank]
+
+
+Streamstats - shows the broadcaster's channel specifics: name, on/offline status, stream title, game, resolution, fps, and viewers
+
+
+!addcom !streamstats $(twitch $(channel) "{{displayName}} is currently {{status}}, streaming, under the title '{{title}}', {{game}} in {{resolution}} at {{fps}} for {{viewers}} viewers. {{displayName}} has been streaming for {{uptimeLength}} since {{uptimeAt}}.") imGlitch
+
+
+Usage: !streamstats [username/leave blank]
+
+
+Followers - gets the current number of followers of a specified user
+
+
+!addcom !followers $(twitch $(touser) "{{displayName}} currently has {{followers}} followers.") imGlitch
+
+
+Usage: !followers [username/leave blank]
+
+
+Viewers - gets the current number of viewers in the broadcaster's channel
+
+
+!addcom !viewers $(twitch $(channel) "{{displayName}} currently has {{viewers}} viewers.") imGlitch
+
+
+Usage: !viewers [username/leave blank]
+
+
+On - shows if the broadcaster is currently live or not
+
+
+!addcom !on $(twitch $(channel) "{{displayName}} is currently {{status}}.") imGlitch
+
+
+Usage: !on [username/leave blank]
+
+
+Weather - gets the current weather conditions for a specified location
+
+
+!addcom !weather $(weather $(query)) twitchRaid
+
+
+Usage: !weather [location]
+
+
+Rng - returns a random number
+
+
+!addcom !rng Random number generator output: $(urlfetch http://2g.be/twitch/randomnumber.php?start=0&end=100) MingLee
+
+
+Usage: !rng
+
+
+
+
+
+
+
+
+Rng2 - returns a random number within 2 specified minimum and maximum bounds
+
+
+!addcom !rng2 Random number generator output: $(urlfetch http://2g.be/twitch/randomnumber.php?start=$(1)&end=$(2)) MingLee
+
+
+Usage: !rng2 [min value] [max value]
+
+
+Sl - !songlist alias. gives a link to the broadcaster's song request list
+
+
+!addcom !sl -a=!songlist $(query)
+
+
+Usage: !sl
+
+
+Sr - !songrequest alias
+!addcom !sr -a=!songrequest $(query)
+
+
+Usage: !sr [YouTube video ID/SoundCloud link/Spotify link/YouTube searchwords]
+
+
+Sd - !delsong alias *MOD ONLY*
+
+
+!addcom !sd -a=!delsong $(query)
+
+
+Usage: !sd [song queue id]
+
+
+Sc - !currentsong alias, gives the current song playing
+
+
+!addcom !sc -a=!currentsong
+
+
+Usage: !sc
+
+
+Sn - !nextsong alias, gives the next song to be played
+
+
+!addcom !sn -a=!nextsong
+
+
+Usage: !sn
+
+
+Ss - !skipsong alias, skips the current song *MOD ONLY*
+
+
+!addcom !ss -a=!skipsong
+
+
+Usage: !ss
+
+
+Sp - !songs promote alias *MOD ONLY*
+
+
+!addcom !sp -a=!songs promote $(query)
+
+
+Usage: !sp [song request list ID of song you wish to move to #1]
+
+
+Splay - !songs play alias (plays the song requests if they’re paused) *MOD ONLY*
+
+
+!addcom !splay -a=!songs play
+
+
+Usage: !splay
+
+
+Spause - !songs pause alias (pauses the song requests if they’re playing) *MOD ONLY*
+
+
+!addcom !spause -a=!songs pause
+
+
+Usage: !spause
+
+
+V - !volume alias, use to get current volume or change volume *CHANGING VOLUME IS MOD ONLY*
+
+
+!addcom !v -a=!volume $(query)
+
+
+Usage: !v [value 0-100/leave blank]
+
+
+Risk - gives a fake risk of death prediction for a specified user with a random number generated via urlfetch to rng
+
+
+!addcom !risk As of right now, $(touser) has a $(urlfetch http://2g.be/twitch/randomnumber.php?start=0&end=100)% chance of dying! $(urlfetch https://api.rtainc.co/twitch/random?format=[0]&choices=Cya later alligator!,Rest in pepperonis!,Welp...,Get poned bish!,Damn.) $(urlfetch http://twitch.center/urlfetch/quote?token=51c809d0&no_id=1)
+
+
+Usage: !risk [username/leave blank]
+
+
+Time - gets the current time and date according to the universal time (GMT+0), in moment.js formatting (refer to http://momentjs.com/docs/#/displaying/format/ for further info)
+
+
+!addcom !time The current time and date is $(time Etc/UTC "h:mm:ss A on MMMM Do YYYY"). This time is in accordance with the Coordinated Universal Time (UTC), or $(time Etc/UTC "[GMT]Z").
+
+
+Usage: !time
+
+
+*MALFUNCTIONAL* Aut - stands for “add user time”, takes two arguments from the user (arg 1 = any name, arg 2 = timezone, refer here for a list of official timezones to use), then creates a !(arg 1)time cmd that outputs the time according to the timezone specified in arg 2 *MOD ONLY*
+
+
+!addcom !aut -a=!addcom !$(1)time The current time and date for $(1) is $(time $(2) "h:mm:ss A on MMMM Do, YYYY"). $(1)'s current timezone is $(time $(2) "z, or [GMT]Z").
+
+
+Usage: !aut [any name] [acceptable timezone name]
+
+
+*MALFUNCTIONAL* Etz - stands for “edit time zone”, takes two arguments from the user (arg 1 = the "name" of any !(name)time cmd, arg 2 = timezone), then sets the timezone of the !(arg 1)time cmd to the new timezone in arg 2 *MOD ONLY*
+
+
+!addcom !etz -a=!editcom !$(1)time The current time and date for $(1) is $(time $(2) "h:mm:ss A on MMMM Do, YYYY"). $(1)'s current timezone is $(time $(2) "z, or [GMT]Z").
+
+
+Usage: !etz [name of time cmd] [acceptable timezone name]
+
+
+Shoutout - calls attention to a specified user and provides a link to their channel
+
+
+!addcom !shoutout $(twitch $(touser) "Go check out {{displayName}} playing {{game}} at {{url}}”) imGlitch
+
+
+Usage: !shoutout [username/leave blank]
+So - !shoutout alias
+
+
+!ac !so -a=!shoutout $(query)
+
+
+Usage: !so [username/leave blank]
+
+
+Tweetstream - gives a link that, when clicked upon, brings the user to a generated Tweet-able message giving the broadcaster a shoutout
+
+
+!addcom !tweetstream If you wish to give $(channel) a shoutout on Twitter, click this link, make sure you're logged onto your Twitter account, and Tweet the message provided by the link! twitchRaid $(tweet Come watch $(channel) play $(twitch $(channel) "{{game}} on Twitch at {{url}}")!)
+
+
+Usage: !tweetstream // After using the cmd, click the generated link, make sure you're logged onto your Twitter account, then post the generated Tweet.
+
+
+Tweetso - gives a link that, when clicked upon, brings the user to a generated Tweet-able message giving a specified Twitch user a shoutout
+
+
+!addcom !tweetso If you wish to give $(touser) a shoutout on Twitter, click this link, make sure you're logged onto your Twitter account, and Tweet the message provided by the link! twitchRaid $(tweet Come watch $(touser) play $(twitch $(touser) "{{game}} on Twitch at {{url}}")!)
+
+
+Usage: !tweetso [username/leave blank] // After using the cmd, click the generated link, make sure you're logged onto your Twitter account, then post the generated Tweet.
+
+
+Asktwitch - takes user query and gives a link that, when clicked upon, brings the user to a generated Tweet-able message that will mention @TwitchSupport
+
+
+!addcom !asktwitch This is a link to a Tweet-able message that'll mention @TwitchSupport, saying "$(query)" - $(tweet @TwitchSupport $(query))
+
+
+Usage: !asktwitch [any message] // After using the cmd, click the generated link, make sure you're logged onto your Twitter account, then post the generated Tweet.
+
+
+Asknightbot - takes user query and gives a link that, when clicked upon, brings the user to a generated Tweet-able message that will mention @NightbotApp
+
+
+!addcom !asknightbot This is a link to a Tweet-able message that'll mention @NightbotApp, saying "$(query)" - $(tweet @nightbotapp $(query))
+
+
+Usage: !asknightbot [any message] // After using the cmd, click the generated link, make sure you're logged onto your Twitter account, then post the generated Tweet.
+
+
+Lasttweet - gets the last Tweet of a specified Twitter user
+
+
+!addcom !lasttweet $(touser)'s last Tweet message says "$(urlfetch http://api.newtimenow.com/last-tweet/?q=$(touser))"
+
+
+Usage: !lasttweet [Twitter username/leave blank if your Twitch is the same as your Twitter]
+
+
+
+
+
+
+
+
+Choose - randomly selects from a list of given options
+
+
+!addcom !choose /me decrees "$(urlfetch https://api.rtainc.co/twitch/random?format=[0]&choices=$(query))!" MrDestructoid
+
+
+Usage: !choose [any list of choices, separated by commas]
+
+
+P - !poll new alias *MOD ONLY*
+
+
+!addcom !p -a=!poll new $(query)
+
+
+Usage: !p [title of poll]|[any list of options, separated by | ]
+
+
+Pr - !poll results alias, shows the results of the last created poll
+
+
+!addcom !pr -a=!poll results
+
+
+Usage: !pr
+
+
+Recentfollows - gets a specified number of the broadcaster's most recent followers
+
+
+!addcom !recentfollows $(twitch $(channel) "{{displayName}}")'s $(query) most recent followers are: $(urlfetch https://api.rtainc.co/twitch/channels/$(channel)/followers?format=[2]&count=$(query)). imGlitch
+
+
+Usage: !recentfollows [value 1-100]
+
+
+Rf - !recentfollows alias
+
+
+!addcm !rf -a=!recentfollows $(query)
+
+
+Usage: !rf [value 1-100]
+
+
+Google - gives Google search results
+
+
+!addcom !google Hey $(user), let me Google that for you! Here you go: http://google.com/#q=$(querystring) MrDestructoid
+
+
+Usage: !google [anything]
+
+
+Googleimage - gives Google image search results
+
+
+!addcom !googleimage Hey $(user), let me Google image search that for you! Here you go: http://google.com/search?tbm=isch&q=$(querystring) MrDestructoid
+
+
+Usage: !googleimage [anything]
+
+
+Yt - gives a YouTube search results link (NOT FOR SONG REQUESTS!)
+
+
+!addcom !yt $(user), YouTube search time! Here you go: youtube.com/results?search_query=$(querystring) MrDestructoid
+
+
+Usage: !yt [anything]
+
+
+
+
+Wiki - gives a Wikipedia search result
+
+
+!addcom !wiki $(user), let me Wiki that for you! Here you go: http://en.wikipedia.org/wiki/$(querystring) MrDestructoid
+
+
+Usage: !wiki [anything]
+
+
+Wiki2 - gives a Wikipedia search result, but allows for Wikipedia language URL input from the user, click here to see the list for that
+
+
+!addcom !wiki2 $(user), let me Wiki that for you! Here you go: http://$(2).wikipedia.org/wiki/$(1) || If you wish to learn Wikipedia's language URL bits, click here: https://en.wikipedia.org/wiki/List_of_Wikipedias#Notes MrDestructoid
+
+
+Usage: !wiki2 [anything, use _ in place of spaces] [appropriate Wikipedia wiki name]
+
+
+Online - gives a link to downoruprightnow.com with user query, tests if a site is up/down
+
+
+!addcom !online $(user), click here to check the status of $(query): http://downoruprightnow.com/status/$(querystring)
+
+
+Usage: !online [any website]
+
+
+Steamsearch - searches for and provides a Steam user's profile info
+
+
+!addcom !steamsearch $(steam $(query))
+
+
+Usage: !steamsearch [any Steam username/leave blank if your Twitch is the same as your Steam]
+
+
+Gameserver - gives the IP of the server you’re on if you’re playing a Valve game (NOTE: if your Twitch username is not the same as your Steam username, change the $(channel) variable in the cmd syntax to your Steam username)
+
+
+!addcom !gameserver $(steam $(channel) “{{name}} is playing {{game}} on the server {{gameServer}}! If you wish to join {{name}}’s game, enter ‘join {{gameServer}}’ into the Valve dev console. If you don’t know how to do this, look it up.”)
+
+
+Usage: !gameserver
+
+
+Gs - !gameserver alias
+
+
+!addcom !gs -a=!gameservery $(query)
+
+
+Usage: !gs
+
+
+Math - calculates input, will output "???" if it fails to compute
+
+
+!addcom !math $(query) = $(urlfetch http://twitch.center/urlfetch/math?expr=$(querystring)) MingLee
+
+
+Usage: !math [any non-algebraic expression, use symbols + - * / ^ sin() cos() tan() csc() sec() cot() trunc() round() log() ln() pi ]
+
+
+
+
+
+
+Dropkick - dropkicks a specified user's ass in various ways :D
+
+
+!addcom !dropkick $(user) dropkicks $(touser)'s ass $(urlfetch http://twitch.center/urlfetch/quote?token=cc798736&no_id=1) $(urlfetch http://twitch.center/urlfetch/quote?token=51c809d0&no_id=1)
+
+
+Usage: !dropkick [username/leave blank if you wish to dropkick yourself]
+
+
+Roulette - outputs a random message for a Roulette game (most revolvers have 6 chambers, but the chance of a death message is ¼)
+
+
+!ac !roulette $(user) loads a single bullet into the revolver, spins the barrel, aims it at their head, and pulls the trigger… $(urlfetch http://twitch.center/urlfetch/quote?token=4c602b2c&no_id=1)
+
+
+Usage: !roulette
+
+
+Bttvlist - shows the list of custom Better Twitch.tv emotes available within a channel
+
+
+!addcom !bttv The custom BTTV emotes in $(channel)'s channel are: $(urlfetch https://twitch.center/urlfetch/bttvemotes?channel=$(channel)&separator=+||+)
+
+
+Usage: !bttvlist
+
+
+Osu - displays a specified user's osu! stats
+
+
+!addcom !osu $(urlfetch http://gotme.site-meute.com/api/osu.php?action=getRanking&username=$(query)&channel=$(channel)&default=$(user))
+
+
+Usage: !osu [osu! username/leave blank if your Twitch is the same as your osu!}
+
+
+Rlstats - displays a specified user's Rocket League stats
+
+
+!addcom !rlstats $(urlfetch http://y9lw.com/hosted/rocketleague/rankapi.php?user=$(1)&plat=steam&season=$(2)) KAPOW
+
+
+Usage: !rlstats [Rocket League username] [season number]
+
+
+R6rank - displays a specified Rainbow 6: Siege player's ranking
+
+
+!addcom !r6rank $(touser) is rank $(urlfetch http://rainbowsix7nightbot.herokuapp.com/rainbowsix7.php?platform=uplay&nick=$(touser)&command=rank) DatSheffy
+
+
+Usage: !r6rank [Uplay ID, including tag number]
+
+
+
+
+R6stats - displays a specified Rainbow 6: Siege player's ranked stats
+
+
+!addcom !r6stats $(touser)'s Siege stats: $(urlfetch http://rainbowsix7nightbot.herokuapp.com/rainbowsix7.php?platform=uplay&nick=$(touser)&command=stats) MingLee
+
+
+Usage: !r6stats [Uplay ID, including tag number]
+R6time - displays how long a specified Rainbow 6: Siege player has spent in ranked gameplay
+
+
+!addcom !r6time $(touser) has spent $(urlfetch http://rainbowsix7nightbot.herokuapp.com/rainbowsix7.php?platform=uplay&nick=$(touser)&command=time) playing ranked multiplayer. SoonerLater
+
+
+Usage: !r6time [Uplay ID, including tag number]
+
+
+History - provides a link to www.onthisday.com giving info on significant events that occurred on a specified date
+
+
+!addcom !history $(user), here are some important events that happened on $(1) $(2): http://www.onthisday.com/events/$(1)/$(2) PogChamp
+
+
+Usage: !history [full name of month] [number day of month]
+
+
+All custom APIs used in the cmds below have been written by Owyn, a member of the Nightbot developer community.
+
+
+Kill - gives a randomized way of you killing a specified user :D
+
+
+!addcom !kill $(urlfetch https://owyn.us/Twitch/APIs/Kill?Broadcaster=$(channel)&From=$(user)&To=$(query)) riPepperonis
+
+
+Usage: !kill [username]
+
+
+8ball - ask a yes/no question, get a prediction
+
+
+!addcom !8ball $(urlfetch https://owyn.us/Twitch/APIs/Magic8Ball?Broadcaster=$(channel)&From=$(user)&GeneralQuery=$(query)) BudStar
+
+
+Usage: !8ball [any question]
+
+
+Mcserverstats - enter any Minecraft server IP and get its general info
+
+
+!addcom !mcserverstats $(urlfetch https://owyn.us/Twitch/APIs/MinecraftServerStatus?Broadcaster=$(channel)&Server=$(query))
+
+
+Usage: !mcserverstats [any Minecraft server IP]
+
+
+Heist - Payday 2 randomized loadouts, specify up to 3 other users
+
+
+!addcom !heist $(urlfetch https://owyn.us/Twitch/APIs/NextHeist?Broadcaster=$(channel)&GeneralQuery=$(query)) KAPOW
+
+
+Usage: !heist [up to 3 other usernames, separated by commas]
+
+
+
+
+
+
+
+
+
+
+
+
+Lick - specify another user after… you'll find out yourself, gross
+
+
+!addcom !lick $(urlfetch https://owyn.us/Twitch/APIs/Lick?Broadcaster=$(channel)&From=$(user)&To=$(query)) WutFace
+
+
+Usage: !lick [username]
+
+
+Nightquote - gets a quote from a preset list
+
+
+!addcom !nightquote /me says $(urlfetch https://owyn.us/Twitch/APIs/Quote?Broadcaster=$(channel)&GeneralQuery=$(query)) MrDestructoid
+
+
+Usage: !nightquote [value 1-121/leave blank for random quote]
+
+
+Dumb - if you wish to be rude towards a specified user
+
+
+!addcom !dumb $(urlfetch https://owyn.us/Twitch/APIs/Retard?Broadcaster=$(channel)&From=$(user)&To=$(query)) EleGiggle
+
+
+Usage: !dumb [username]
+
+
+Gift - if you wish to be generous towards a specified user
+
+
+!addcom !gift $(urlfetch https://owyn.us/Twitch/APIs/Give?Broadcaster=$(channel)&From=$(user)&To=$(query)) SeemsGood
+
+
+Usage: !gift [username]
