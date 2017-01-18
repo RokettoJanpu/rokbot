@@ -851,4 +851,4 @@ Usage: !gift [username]
 
 -END-
 
-- RokettoJanpu, lead author of RokBot.txt
+- RokettoJanpu, lead author of RokBot.txt -
